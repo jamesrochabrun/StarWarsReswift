@@ -9,5 +9,5 @@
 import ReSwift
 
 struct AppState: StateType {
-    let filmsState: FilmsState
+    let filmState: FilmState
 }

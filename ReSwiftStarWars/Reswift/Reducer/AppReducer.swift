@@ -6,4 +6,8 @@
 //  Copyright © 2018 James Rochabrun. All rights reserved.
 //
 
-import Foundation
+import ReSwift
+
+func appReducer(action: Action, state: AppState?) -> AppState {
+    return AppState(filmState: filmsReducer(action: action, state: state?.filmState))
+}

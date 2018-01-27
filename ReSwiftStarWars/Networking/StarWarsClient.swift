@@ -9,7 +9,7 @@
 import Foundation
 import PromiseKit
 
-class ItuneClient: APIReusableClient {
+class StarWarsClient: APIReusableClient {
     
     let session: URLSession
     
@@ -28,3 +28,9 @@ class ItuneClient: APIReusableClient {
         })
     }
 }
+
+
+
+
+
+

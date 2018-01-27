@@ -1,0 +1,6 @@
+framework module Pods_ReSwiftStarWars_ReSwiftStarWarsTests {
+  umbrella header "Pods-ReSwiftStarWars-ReSwiftStarWarsTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

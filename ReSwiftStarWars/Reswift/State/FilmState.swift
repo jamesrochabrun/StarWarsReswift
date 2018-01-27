@@ -8,9 +8,10 @@
 
 import ReSwift
 
-enum FilmsState {
+enum FilmState {
     case loading
     case finished([Film])
+    case error
 }
 
 

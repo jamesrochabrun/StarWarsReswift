@@ -7,3 +7,15 @@
 //
 
 import Foundation
+
+struct FilmResults: Codable {
+    let results: [Film?]?
+}
+
+struct Film: Codable {
+    let director: String?
+    let producer: String?
+    let title: String?
+    let episodeID: Int?
+    let openingCrawl: String?
+}
