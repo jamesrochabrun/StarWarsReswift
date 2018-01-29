@@ -26,8 +26,8 @@ typealias ActionCreator = (AppState, Store<AppState>) -> Action?
 func fetchFilms(with client: StarWarsClient = StarWarsClient()) -> ActionCreator {
     return { state, store in
         client.getFilms().then { filmResults in
-            dispatch(filmResults: filmResults)
-        }
+            store.dispatch(SetFilmsAction(films: dispatch(filmResults: filmResults)))
+            }
         return LoadingFilmsAction()
     }
 }
@@ -38,7 +38,7 @@ private func dispatch(filmResults: FilmResults?) -> [Film] {
         let results = filmResults.results {
         return results.flatMap { return $0 }
     } else {
-        return []
+        return [] 
     }
 }
 

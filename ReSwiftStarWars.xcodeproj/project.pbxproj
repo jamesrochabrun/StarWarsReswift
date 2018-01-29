@@ -24,6 +24,10 @@
 		09C16A62201BFD0A008CF685 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C16A61201BFD0A008CF685 /* Endpoint.swift */; };
 		09C16A64201BFD3B008CF685 /* StarWars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C16A63201BFD3B008CF685 /* StarWars.swift */; };
 		09C16A66201BFE3A008CF685 /* StarWarsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C16A65201BFE3A008CF685 /* StarWarsClient.swift */; };
+		09DB78FD201E9C94002578AE /* FilmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DB78FC201E9C94002578AE /* FilmCell.swift */; };
+		09DB78FF201E9CB4002578AE /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DB78FE201E9CB4002578AE /* BaseTableViewCell.swift */; };
+		09DB7901201E9CCB002578AE /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DB7900201E9CCB002578AE /* BaseView.swift */; };
+		09DB7904201E9D51002578AE /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DB7903201E9D51002578AE /* Reusable.swift */; };
 		D8F677378B5654C710C81A62 /* Pods_ReSwiftStarWars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E08997906A9D950008870974 /* Pods_ReSwiftStarWars.framework */; };
 		DF2B28AD40C0C59FF0E7B72F /* Pods_ReSwiftStarWars_ReSwiftStarWarsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E23256334FB573A726712FD /* Pods_ReSwiftStarWars_ReSwiftStarWarsTests.framework */; };
 /* End PBXBuildFile section */
@@ -60,6 +64,12 @@
 		09C16A61201BFD0A008CF685 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		09C16A63201BFD3B008CF685 /* StarWars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWars.swift; sourceTree = "<group>"; };
 		09C16A65201BFE3A008CF685 /* StarWarsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarsClient.swift; sourceTree = "<group>"; };
+		09DB78FC201E9C94002578AE /* FilmCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmCell.swift; sourceTree = "<group>"; };
+		09DB78FE201E9CB4002578AE /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		09DB7900201E9CCB002578AE /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		09DB7903201E9D51002578AE /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
+		09DB7908201EA52A002578AE /* TableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableDataSource.swift; sourceTree = "<group>"; };
+		09DB7909201EA52A002578AE /* CollectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionDataSource.swift; sourceTree = "<group>"; };
 		2E23256334FB573A726712FD /* Pods_ReSwiftStarWars_ReSwiftStarWarsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReSwiftStarWars_ReSwiftStarWarsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DF3A5B231FFFDA9F7F3186D /* Pods-ReSwiftStarWars-ReSwiftStarWarsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReSwiftStarWars-ReSwiftStarWarsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReSwiftStarWars-ReSwiftStarWarsTests/Pods-ReSwiftStarWars-ReSwiftStarWarsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8C24277C0A8D5346740496C6 /* Pods-ReSwiftStarWars-ReSwiftStarWarsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReSwiftStarWars-ReSwiftStarWarsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReSwiftStarWars-ReSwiftStarWarsTests/Pods-ReSwiftStarWars-ReSwiftStarWarsTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -116,7 +126,10 @@
 				09C16A2F201BEDF1008CF685 /* Assets.xcassets */,
 				09C16A31201BEDF1008CF685 /* LaunchScreen.storyboard */,
 				09C16A34201BEDF1008CF685 /* Info.plist */,
+				09DB7902201E9D3A002578AE /* Protocols */,
+				09DB7907201EA52A002578AE /* DataSources */,
 				09C16A5A201BFBA7008CF685 /* Networking */,
+				09DB78FB201E9C6C002578AE /* Views */,
 				09C16A49201BF39A008CF685 /* Controllers */,
 				09C16A4E201BF5C5008CF685 /* Models */,
 				09C16A48201BF387008CF685 /* Reswift */,
@@ -195,6 +208,33 @@
 				09C16A63201BFD3B008CF685 /* StarWars.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		09DB78FB201E9C6C002578AE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				09DB78FC201E9C94002578AE /* FilmCell.swift */,
+				09DB78FE201E9CB4002578AE /* BaseTableViewCell.swift */,
+				09DB7900201E9CCB002578AE /* BaseView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		09DB7902201E9D3A002578AE /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				09DB7903201E9D51002578AE /* Reusable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		09DB7907201EA52A002578AE /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				09DB7908201EA52A002578AE /* TableDataSource.swift */,
+				09DB7909201EA52A002578AE /* CollectionDataSource.swift */,
+			);
+			path = DataSources;
 			sourceTree = "<group>";
 		};
 		187DF6051B3966F57F398BE4 /* Frameworks */ = {
@@ -439,6 +479,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09DB7904201E9D51002578AE /* Reusable.swift in Sources */,
 				09C16A4B201BF412008CF685 /* AppState.swift in Sources */,
 				09C16A55201BF635008CF685 /* AppReducer.swift in Sources */,
 				09C16A50201BF5DC008CF685 /* Film.swift in Sources */,
@@ -446,12 +487,15 @@
 				09C16A64201BFD3B008CF685 /* StarWars.swift in Sources */,
 				09C16A2B201BEDF1008CF685 /* FilmsVC.swift in Sources */,
 				09C16A59201BF80A008CF685 /* SetFilmsAction.swift in Sources */,
+				09DB78FD201E9C94002578AE /* FilmCell.swift in Sources */,
 				09C16A66201BFE3A008CF685 /* StarWarsClient.swift in Sources */,
 				09C16A29201BEDF1008CF685 /* AppDelegate.swift in Sources */,
 				09C16A57201BF681008CF685 /* FilmReducer.swift in Sources */,
 				09C16A4D201BF5AD008CF685 /* FilmState.swift in Sources */,
 				09C16A62201BFD0A008CF685 /* Endpoint.swift in Sources */,
+				09DB78FF201E9CB4002578AE /* BaseTableViewCell.swift in Sources */,
 				09C16A5E201BFBE3008CF685 /* APIReusableClient.swift in Sources */,
+				09DB7901201E9CCB002578AE /* BaseView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
