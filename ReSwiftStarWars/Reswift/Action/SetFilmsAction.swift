@@ -23,9 +23,10 @@ struct FilmsErrorAction: Action {}
 /// Action creator for the request
 typealias ActionCreator = (AppState, Store<AppState>) -> Action?
 
-func fetchFilms(with client: StarWarsClient = StarWarsClient()) -> ActionCreator {
+func fetchFilms(with client: APIReusableClient = StarWarsClient()) -> ActionCreator {
     return { state, store in
-        client.getFilms().then { filmResults in
+        let c = client as! StarWarsClient
+        c.getFilms().then { filmResults in
             store.dispatch(SetFilmsAction(films: dispatch(filmResults: filmResults)))
             }
         return LoadingFilmsAction()
