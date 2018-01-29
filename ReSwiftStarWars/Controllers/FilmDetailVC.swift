@@ -1,17 +1,17 @@
 //
-//  FilmCell.swift
+//  FilmDetailVC.swift
 //  ReSwiftStarWars
 //
 //  Created by James Rochabrun on 1/28/18.
 //  Copyright © 2018 James Rochabrun. All rights reserved.
 //
 
-import Foundation
 import UIKit
+import ReSwift
 
-class FilmCell : BaseTableViewCell {
+class FilmDetailVC: UIViewController {
     
-    override func setupViews() {
-        self.backgroundColor = .red
+    override func viewDidLoad() {
+        super.viewDidLoad()
     }
 }

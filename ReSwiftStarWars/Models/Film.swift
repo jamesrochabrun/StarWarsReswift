@@ -12,7 +12,7 @@ struct FilmResults: Codable {
     let results: [Film?]?
 }
 
-struct Film: Codable {
+struct Film: Codable, Modelable {
     let director: String?
     let producer: String?
     let title: String?

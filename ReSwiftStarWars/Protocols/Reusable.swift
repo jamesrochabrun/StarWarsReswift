@@ -75,7 +75,6 @@ extension UICollectionView {
         register(T.self, forCellWithReuseIdentifier: T.reuseIdentifier)
     }
     
-    
     func dequeueReusableCell<T: UICollectionViewCell>(forIndexPath indexPath: IndexPath) -> T {
         guard let cell = dequeueReusableCell(withReuseIdentifier: T.reuseIdentifier, for: indexPath) as? T else {
             return T()
@@ -83,3 +82,6 @@ extension UICollectionView {
         return cell
     }
 }
+
+// MARK: - Modelable
+protocol Modelable {}

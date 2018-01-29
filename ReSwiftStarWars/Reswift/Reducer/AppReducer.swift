@@ -9,5 +9,8 @@
 import ReSwift
 
 func appReducer(action: Action, state: AppState?) -> AppState {
-    return AppState(filmState: filmsReducer(action: action, state: state?.filmState))
+    return AppState(
+        routingState: routingReducer(action: action, state: state?.routingState),
+        filmState: filmsReducer(action: action, state: state?.filmState)
+    )
 }
