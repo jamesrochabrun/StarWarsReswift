@@ -11,11 +11,13 @@ import ReSwift
 
 class FilmsVC: UITableViewController {
     
+    // MARK: - properties
+    var tableDataSource: GenericTableDataSource<FilmCell, Film>?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         store.subscribe(self) { $0.select { $0.filmState }}
         store.dispatch(fetchFilms())
-        
     }
     
     private func setUpTableView() {
