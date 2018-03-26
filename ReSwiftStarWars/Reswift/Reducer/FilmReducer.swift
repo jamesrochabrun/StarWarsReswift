@@ -8,14 +8,21 @@
 
 import ReSwift
 
-func filmsReducer(action: Action, state: FilmState?) -> FilmState {
-    
-    switch action {
-    case let action as SetFilmsAction:
-        return .finished(action.films)
-    case _ as LoadingFilmsAction:
-        return .loading
-    default:
-        return .finished([])
+func filmsReducer(action: Action, state: LoadingState<[Film]>?) -> LoadingState<[Film]> {
+
+    var localState = state ?? .notAsked
+    switch action as? AppAction {
+    case nil:
+        break
+    case .handleLoadPostResult(let result)?:
+        switch result {
+        case .success(let films):
+            localState = .loaded(films)
+        case .error(let error):
+            localState = .error(error)
+        }
+    case .handleLoading?:
+        localState = .loading
     }
+    return localState
 }

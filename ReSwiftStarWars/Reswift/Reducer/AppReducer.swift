@@ -10,7 +10,9 @@ import ReSwift
 
 func appReducer(action: Action, state: AppState?) -> AppState {
     return AppState(
+        /// Navigation
         routingState: routingReducer(action: action, state: state?.routingState),
+        /// Films request
         filmState: filmsReducer(action: action, state: state?.filmState)
     )
 }

@@ -9,32 +9,31 @@
 import Foundation
 import ReSwift
 
-/// Action that provides the feed Success
-struct SetFilmsAction: Action {
-    let films: [Film]
+
+enum AppAction: Action {
+    case handleLoadPostResult(Result<[Film]>)
+    case handleLoading
 }
 
-/// Action for the loading state Loading
-struct LoadingFilmsAction: Action {}
-
-// Action for the error
-struct FilmsErrorAction: Action {}
-
-/// Action creator for the request
-typealias ActionCreator = (AppState, Store<AppState>) -> Action?
-
-func fetchFilms(with client: APIReusableClient = StarWarsClient()) -> ActionCreator {
+func fetchFilms(with client: APIReusableClient = StarWarsClient()) -> Store<AppState>.ActionCreator {
+    
     return { state, store in
+        /// if loading or loaded avoid request
+        if case .loading = state.filmState,
+            case .loaded = state.filmState {
+            return nil
+        }
         let c = client as! StarWarsClient
         c.getFilms().then { filmResults in
-            store.dispatch(SetFilmsAction(films: dispatch(filmResults: filmResults)))
-            }
-        return LoadingFilmsAction()
+            store.dispatch(AppAction.handleLoadPostResult(.success(set(filmResults: filmResults))))
+        }
+        return AppAction.handleLoading
     }
 }
 
+
 /// Helper Promise
-private func dispatch(filmResults: FilmResults?) -> [Film] {
+private func set(filmResults: FilmResults?) -> [Film] {
     if let filmResults = filmResults,
         let results = filmResults.results {
         return results.flatMap { return $0 }

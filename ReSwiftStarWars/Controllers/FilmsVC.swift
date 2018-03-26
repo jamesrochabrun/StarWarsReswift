@@ -14,21 +14,27 @@ class FilmsVC: UITableViewController {
     // MARK: - properties
     var tableDataSource: GenericTableDataSource<FilmCell, Film>?
     
+    // MARK: - Action Creator For Request
+    lazy var loadFilmsActionCreator: Store<AppState>.ActionCreator = {
+        fetchFilms()
+    }()
+    
     // MARK: - AppLifecycle,subscribe and unsibscribe to store
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTableView()
-        store.dispatch(fetchFilms())
+        store.dispatch(loadFilmsActionCreator)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        // Subscribe the store
         store.subscribe(self) { $0.select { $0.filmState }}
         self.updateNavigationState()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
         // 3 Unsubscribe, when needed.
         store.unsubscribe(self)
     }
@@ -47,20 +53,21 @@ class FilmsVC: UITableViewController {
 // MARK: - StoreSubscriber
 extension FilmsVC: StoreSubscriber {
     
-    func newState(state: FilmState) {
-        switch state {
-        case .loading:
-            print("loading")
-        case .finished(let films):
-            tableDataSource = GenericTableDataSource(models: films) { cell, model in
-                cell.textLabel?.text = model.title
-                return cell
-            }
-            tableView.dataSource = tableDataSource
-            tableView.reloadData()
-        case .error:
-            print("error")
+    func newState(state: LoadingState<[Film]>) {
+        
+        /// Initializing the view model
+        let vm = FilmsVCViewModel(state)
+        // handle UI
+        //activInd.isHidden = vm.activityIndicatorHidden
+        
+        // Update Data Source with models
+        guard !vm.films.isEmpty else { return }
+        tableDataSource = GenericTableDataSource(models: vm.films) { cell, model in
+            cell.textLabel?.text = model.title
+            return cell
         }
+        tableView.dataSource = tableDataSource
+        tableView.reloadData()
     }
 }
 

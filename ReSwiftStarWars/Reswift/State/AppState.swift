@@ -10,5 +10,5 @@ import ReSwift
 
 struct AppState: StateType {
     let routingState: RoutingState
-    let filmState: FilmState
+    var filmState: LoadingState<[Film]> = .notAsked
 }

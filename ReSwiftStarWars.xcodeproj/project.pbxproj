@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		090A6F7920689CEE00FB8DF9 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090A6F7820689CEE00FB8DF9 /* Result.swift */; };
+		090A6F7C2068AB6300FB8DF9 /* FilmsVCViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090A6F7B2068AB6300FB8DF9 /* FilmsVCViewModel.swift */; };
 		09C16A29201BEDF1008CF685 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C16A28201BEDF1008CF685 /* AppDelegate.swift */; };
 		09C16A2B201BEDF1008CF685 /* FilmsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C16A2A201BEDF1008CF685 /* FilmsVC.swift */; };
 		09C16A2E201BEDF1008CF685 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09C16A2C201BEDF1008CF685 /* Main.storyboard */; };
 		09C16A30201BEDF1008CF685 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09C16A2F201BEDF1008CF685 /* Assets.xcassets */; };
 		09C16A33201BEDF1008CF685 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09C16A31201BEDF1008CF685 /* LaunchScreen.storyboard */; };
 		09C16A4B201BF412008CF685 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C16A4A201BF412008CF685 /* AppState.swift */; };
-		09C16A4D201BF5AD008CF685 /* FilmState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C16A4C201BF5AD008CF685 /* FilmState.swift */; };
+		09C16A4D201BF5AD008CF685 /* LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C16A4C201BF5AD008CF685 /* LoadingState.swift */; };
 		09C16A50201BF5DC008CF685 /* Film.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C16A4F201BF5DC008CF685 /* Film.swift */; };
 		09C16A55201BF635008CF685 /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C16A54201BF635008CF685 /* AppReducer.swift */; };
 		09C16A57201BF681008CF685 /* FilmReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C16A56201BF681008CF685 /* FilmReducer.swift */; };
@@ -52,6 +54,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		090A6F7820689CEE00FB8DF9 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		090A6F7B2068AB6300FB8DF9 /* FilmsVCViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmsVCViewModel.swift; sourceTree = "<group>"; };
 		09C16A25201BEDF1008CF685 /* ReSwiftStarWars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReSwiftStarWars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09C16A28201BEDF1008CF685 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09C16A2A201BEDF1008CF685 /* FilmsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmsVC.swift; sourceTree = "<group>"; };
@@ -62,7 +66,7 @@
 		09C16A39201BEDF1008CF685 /* ReSwiftStarWarsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReSwiftStarWarsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		09C16A3F201BEDF1008CF685 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		09C16A4A201BF412008CF685 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
-		09C16A4C201BF5AD008CF685 /* FilmState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmState.swift; sourceTree = "<group>"; };
+		09C16A4C201BF5AD008CF685 /* LoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingState.swift; sourceTree = "<group>"; };
 		09C16A4F201BF5DC008CF685 /* Film.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Film.swift; sourceTree = "<group>"; };
 		09C16A54201BF635008CF685 /* AppReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReducer.swift; sourceTree = "<group>"; };
 		09C16A56201BF681008CF685 /* FilmReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmReducer.swift; sourceTree = "<group>"; };
@@ -114,6 +118,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		090A6F7A2068AB1800FB8DF9 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				090A6F7B2068AB6300FB8DF9 /* FilmsVCViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		09C16A1C201BEDF1008CF685 = {
 			isa = PBXGroup;
 			children = (
@@ -167,9 +179,10 @@
 			isa = PBXGroup;
 			children = (
 				09DB7910201ECEEE002578AE /* Router */,
+				09C16A51201BF60E008CF685 /* State */,
 				09C16A53201BF61E008CF685 /* Action */,
 				09C16A52201BF613008CF685 /* Reducer */,
-				09C16A51201BF60E008CF685 /* State */,
+				090A6F7A2068AB1800FB8DF9 /* ViewModels */,
 			);
 			path = Reswift;
 			sourceTree = "<group>";
@@ -194,8 +207,8 @@
 		09C16A51201BF60E008CF685 /* State */ = {
 			isa = PBXGroup;
 			children = (
+				09C16A4C201BF5AD008CF685 /* LoadingState.swift */,
 				09C16A4A201BF412008CF685 /* AppState.swift */,
-				09C16A4C201BF5AD008CF685 /* FilmState.swift */,
 				09DB790E201ECE92002578AE /* RoutingState.swift */,
 			);
 			path = State;
@@ -228,6 +241,7 @@
 				09C16A5F201BFC27008CF685 /* APIError.swift */,
 				09C16A61201BFD0A008CF685 /* Endpoint.swift */,
 				09C16A63201BFD3B008CF685 /* StarWars.swift */,
+				090A6F7820689CEE00FB8DF9 /* Result.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -524,10 +538,12 @@
 				09C16A55201BF635008CF685 /* AppReducer.swift in Sources */,
 				09C16A50201BF5DC008CF685 /* Film.swift in Sources */,
 				09C16A60201BFC27008CF685 /* APIError.swift in Sources */,
+				090A6F7920689CEE00FB8DF9 /* Result.swift in Sources */,
 				09C16A64201BFD3B008CF685 /* StarWars.swift in Sources */,
 				09C16A2B201BEDF1008CF685 /* FilmsVC.swift in Sources */,
 				09C16A59201BF80A008CF685 /* SetFilmsAction.swift in Sources */,
 				09DB7918201ED3FE002578AE /* FilmDetailVC.swift in Sources */,
+				090A6F7C2068AB6300FB8DF9 /* FilmsVCViewModel.swift in Sources */,
 				09DB78FD201E9C94002578AE /* FilmCell.swift in Sources */,
 				09DB790D201EA827002578AE /* GenericCollectionDataSource.swift in Sources */,
 				09C16A66201BFE3A008CF685 /* StarWarsClient.swift in Sources */,
@@ -535,7 +551,7 @@
 				09C16A29201BEDF1008CF685 /* AppDelegate.swift in Sources */,
 				09DB7916201ECFE1002578AE /* RoutingAction.swift in Sources */,
 				09C16A57201BF681008CF685 /* FilmReducer.swift in Sources */,
-				09C16A4D201BF5AD008CF685 /* FilmState.swift in Sources */,
+				09C16A4D201BF5AD008CF685 /* LoadingState.swift in Sources */,
 				09C16A62201BFD0A008CF685 /* Endpoint.swift in Sources */,
 				09DB78FF201E9CB4002578AE /* BaseTableViewCell.swift in Sources */,
 				09C16A5E201BFBE3008CF685 /* APIReusableClient.swift in Sources */,
